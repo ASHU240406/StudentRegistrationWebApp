@@ -1,0 +1,24 @@
+﻿@model StudentRegistrationWebApp.Models.Course
+
+<h4 class="text-primary">Details of Course</h4>
+<hr />
+<table class="table table-striped">
+    <tr>
+        <td>Course Name</td>
+        <td>@Model.CourseName</td>
+    </tr>
+    <tr>
+        <td>Course Duration (months)</td>
+        <td>@Model.CourseDuration</td>
+    </tr>
+    <tr>
+        <td>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@Model.CourseId" class="btn btn-primary">
+                Edit Course Details
+            </a>
+        </td>
+    </tr>
+</table>

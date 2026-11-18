@@ -1,0 +1,26 @@
+﻿@model StudentRegistrationWebApp.Models.Student
+
+<h3 class="text-primary">My Profile</h3>
+<hr />
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+<table class="table table-striped">
+    <tr>
+        <td>Full Name</td>
+        <td>@Model.FullName</td>
+    </tr>
+    <tr>
+        <td>City</td>
+        <td>@Model.City</td>
+    </tr>
+    <tr>
+        <td>Registered Course</td>
+        <td>@Model.Course.CourseName</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><a asp-action="EditProfile" class="btn btn-primary">Edit My Details</a></td>
+    </tr>
+</table>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<StudentRegistrationWebApp.Models.Student>
+
+@if (!Model.Any())
+{
+    <h3 class="text-warning">No Students to Display</h3>
+}
+else
+{
+    <a asp-action="Create">Register New Student</a>
+    <h3 class="text-primary">List of Students</h3>
+    <hr />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>City</th>
+                <th>Course</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in Model)
+            {
+                <tr>
+                    <td>@s.FullName</td>
+                    <td>@s.City</td>
+                    <td>@s.Course.CourseName</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@s.StudentId">View Details</a> |
+                        <a asp-action="Edit" asp-route-id="@s.StudentId">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@s.StudentId"
+                           onclick="return confirm('Do you wish to delete this student?');">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
